@@ -29,8 +29,7 @@
 }
 
 .grid {
-  width: 50%;
-  height: 50%;
+  border: 1px solid black;
   /*border-collapse: collapse;*/
 }
 
@@ -40,4 +39,12 @@
   border: 1px solid black;
   display: inline-block;
   margin: 0;
+}
+
+.on {
+  background-image: url(https://res.cloudinary.com/vpatel/image/upload/v1514438273/letter-x_cwftxa.svg);
+}
+
+.off {
+  background-image: url(https://res.cloudinary.com/vpatel/image/upload/v1514438273/letter-o_pqwowb.svg);
 }
