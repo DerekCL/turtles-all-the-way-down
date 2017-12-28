@@ -1,0 +1,10 @@
+Stage 1: 
+
+Create react app folder structure
+Render basic text on page 
+Create static page with the grid and allow user to change grid size 
+Create alternating x/o when user clicks and it occupies the box he clicked
+
+Once the requirements above are completed, implement the login 
+
+
