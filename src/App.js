@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Grid from './Grid.js';
+import Grid from './grid.js';
 import Login from './Login.js';
 
 class App extends Component {
