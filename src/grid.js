@@ -15,13 +15,12 @@ class Grid extends Component {
 	}
 
 	handleClick = (i) => {
-		console.log('in handle click')
-
-		if(this.state.cells[i].toLowerCase !== 'X' && this.state.cells[i].toLowerCase !== 'O'	) {	
+		if(this.state.cells[i] === null || this.state.cells[i] === 'null'	) {	
 			const cells = this.state.cells.slice();
 			cells[i] = this.state.xIsNext ? 'X' : 'O';
 			this.setState(
-				{cells: cells,
+				{
+					cells: cells,
 					xIsNext: !this.state.xIsNext
 				});
 		}
@@ -35,23 +34,21 @@ class Grid extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		let action = ''
+		let size = ''
 		console.log('handleSubmit -->', event.target.name)
 		if(event.target.name === 'changeSize') {
-			action = this.state.newGridSize || this.state.defaultGridSize
+			size = this.state.newGridSize || this.state.defaultGridSize
 			console.log('in if changeSize')
 		} else {
 			console.log('in if resetGrid')
-			action = 3
-			// this.setState({
-			// 	cells: Array(9).fill(null)
-			// })
+			size = 3
 		}
 		
-		if(action !== '') {
+		if(size !== '') {
 			this.setState({
-				defaultGridSize: action,
-				newGridSize: action
+				defaultGridSize: size,
+				newGridSize: size,
+				cells: Array(size * size).fill(null)
 			})
 		}
 	}
