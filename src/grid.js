@@ -9,19 +9,22 @@ class Grid extends Component {
 		this.state = {
 			cells: Array(9).fill(null),
 			xIsNext: true,
-			currentGridSize: 3,
-			newGridSize: null
-
+			defaultGridSize: 3,
+			newGridSize: 3
 		}
 	}
 
 	handleClick = (i) => {
-		const cells = this.state.cells.slice();
-		cells[i] = this.state.xIsNext ? 'X' : 'O';
-		this.setState(
-			{cells: cells,
-				xIsNext: !this.state.xIsNext
-			});
+		console.log('in handle click')
+
+		if(this.state.cells[i].toLowerCase !== 'X' && this.state.cells[i].toLowerCase !== 'O'	) {	
+			const cells = this.state.cells.slice();
+			cells[i] = this.state.xIsNext ? 'X' : 'O';
+			this.setState(
+				{cells: cells,
+					xIsNext: !this.state.xIsNext
+				});
+		}
 	}
 
 	handleChange = (event) => {
@@ -32,9 +35,25 @@ class Grid extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		this.setState({
-			currentGridSize: this.state.newGridSize
-		})
+		let action = ''
+		console.log('handleSubmit -->', event.target.name)
+		if(event.target.name === 'changeSize') {
+			action = this.state.newGridSize || this.state.defaultGridSize
+			console.log('in if changeSize')
+		} else {
+			console.log('in if resetGrid')
+			action = 3
+			// this.setState({
+			// 	cells: Array(9).fill(null)
+			// })
+		}
+		
+		if(action !== '') {
+			this.setState({
+				defaultGridSize: action,
+				newGridSize: action
+			})
+		}
 	}
 
 	renderCell = (i) => {
@@ -71,17 +90,18 @@ class Grid extends Component {
 				<div className="status">{status}</div>
 				<div className="status">Grid Size: </div>
 				<form>
-				<input type='number' placeholder={ this.state.currentGridSize } onChange={this.handleChange} ></input>
-				<input type='submit' onClick={this.handleSubmit} ></input>
+				<input type='number' placeholder={ 'Current size: ' + this.state.defaultGridSize } onChange={this.handleChange} ></input>
+				<input type='submit' name='changeSize' onClick={this.handleSubmit} ></input>
+				<input type='submit' name='resetGrid' value='Reset Grid' onClick={this.handleSubmit} ></input>
 				</form>
-				{ this.createGrid(this.state.currentGridSize) }
+				{ this.createGrid(this.state.defaultGridSize) }
 				</div> 
 
 				)
+			}
 		}
-	}
 
-	export default Grid;
+		export default Grid;
 
 
 
