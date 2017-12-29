@@ -6,34 +6,86 @@ class Grid extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
+			cells: Array(9).fill(null),
+			xIsNext: true,
+			currentGridSize: 3,
+			newGridSize: null
+
 		}
 	}
 
-	render () {
-		const gridSize = 3;
-		let grid = []
-		
-		const createMarkup = (size) => {
-			let cell =  <Cell />
-			let row = [];
-			for(let i = 0; i < size; i ++) {
-				row.push(cell);
-			}
-			return row ; 
-		}
+	handleClick = (i) => {
+		const cells = this.state.cells.slice();
+		cells[i] = this.state.xIsNext ? 'X' : 'O';
+		this.setState(
+			{cells: cells,
+				xIsNext: !this.state.xIsNext
+			});
+	}
 
-		for(let i = 0; i < gridSize; i++) {
-			let row = <div key={i}> { createMarkup(gridSize) } </div>;
-			grid.push(row)
-		}
+	handleChange = (event) => {
+		this.setState({
+			newGridSize: event.target.value
+		})
+	}
 
+	handleSubmit = (event) => {
+		event.preventDefault()
+		this.setState({
+			currentGridSize: this.state.newGridSize
+		})
+	}
+
+	renderCell = (i) => {
 		return (
-		<div className="grid" >
-		{ grid }
-		</div>
-		)
-	}
-}
+			<Cell
+			value={this.state.cells[i]}
+			onClick={() => this.handleClick(i)}
+			/>
+			);
+		}
 
-export default Grid;
+		createGrid = (size) => {	
+			let grid = []
+			let counter = 0;
+			for(let i = 0; i < size; i++) {
+				let cells = []
+				let row = <div className="row"> { cells } </div>	
+				for(let j = 0; j < size; j++) {
+					cells.push(this.renderCell(counter++))
+					if(j === size - 1) {
+						grid.push(row)
+					}
+				}
+			}
+			return grid
+		}
+
+		render () {
+			const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+
+
+			return ( 
+				<div>
+				<div className="status">{status}</div>
+				<div className="status">Grid Size: </div>
+				<form>
+				<input type='number' placeholder={ this.state.currentGridSize } onChange={this.handleChange} ></input>
+				<input type='submit' onClick={this.handleSubmit} ></input>
+				</form>
+				{ this.createGrid(this.state.currentGridSize) }
+				</div> 
+
+				)
+		}
+	}
+
+	export default Grid;
+
+
+
+
+
+
+
