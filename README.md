@@ -1,10 +1,10 @@
-# Jungle
+# Turtles-all-the-way-down
 
 A tic-tac-tow clone built using React, Express and MongoDB. If you are wondering why the project name is 'turtles-all-the-way-down', it is because this project was given to me as part of a tech assignment for an interview and their description of the project involved turtles. I thought it would be funny to name it this way, as it reminds me of the 'infinite regress' problem in terms of the never ending battle (what's under the turtle holding the earth?...it's turtles all the way down), that is winning a tic-tac-toe game.
 
 ## Final Product
-!["Screenshot of the main page"]()
-!["Screenshot of the main page"]()
+!["Screenshot of the main page"](https://github.com/VivekPatel3835/turtles-all-the-way-down/blob/master/screenshots/main-page.png?raw=true)
+!["Screenshot of the main page"](https://github.com/VivekPatel3835/turtles-all-the-way-down/blob/master/screenshots/main-page2.png?raw=true)
 
 ## Setup
 
