@@ -1,16 +1,47 @@
 .App {
   text-align: center;
   height: 100%;
+  font-family: Helvetica,sans-serif;
+}
+
+.googleLogInButton {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(.27548vw + 12.71074px);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s,border-color .3s;
+  background-color: #F90101;
+  border: calc(.06887vw + .67769px) solid rgb(76, 105, 186);
+  padding: calc(.34435vw + 13.38843px) calc(.34435vw + 18.38843px);
+}
+
+.facebookLogInButton {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(.27548vw + 12.71074px);
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #F90101;
+  border: calc(.06887vw + .67769px) solid rgb(76, 105, 186);
+  padding: calc(.34435vw + 13.38843px) calc(.34435vw + 18.38843px);
 }
 
 .App-logo {
+  margin-top: 10px;
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 200px;
   padding: 20px;
   color: white;
 }
@@ -28,13 +59,62 @@
   to { transform: rotate(360deg); }
 }
 
+.playerTurn {
+  font-size: 1.3em;
+  font-family: Helvetica,sans-serif;
+  margin: 10px;
+}
+
+.gridSizeForm {
+
+}
+
+.gridSizeFormTitle {
+  display: inline-block;
+  margin: 10px;
+}
+
+.gridSizeFormButtons {
+  font: bold 13px "Helvetica Neue", Helvetica, Arial, clean, sans-serif !important;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25), -2px 0 1px rgba(0,0,0,0.25);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  display: inline-block;
+  color: white;
+  padding: 5px 10px 5px;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: #A9014B repeat-x scroll 0 0;
+  border-style: none;
+  text-align: center;
+  overflow: visible;
+  margin-left: 10px;
+}
+ 
+.gridSizeFormButtons:hover,
+.gridSizeFormButtons:focus {
+  background-position: 0 -50px;
+  color: white;
+}
+ 
+.gridSizeFormButtons:active {
+  background-position: 0 -100px;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.7);
+  -webkit-box-shadow: none;
+}
+
 .cells {
   font-size: 1em;
-  padding: 7%;
+  min-width: 80px;
+  min-height: 80px;
   border: 1px solid black;
   display: inline-block;
-  margin: 0;
 }
+
 /*
 .toggleX {
   background-image: url(https://res.cloudinary.com/vpatel/image/upload/v1514438273/letter-x_cwftxa.svg);

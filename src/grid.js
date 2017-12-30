@@ -84,12 +84,12 @@ class Grid extends Component {
 
 			return ( 
 				<div>
-				<div className="status">{status}</div>
-				<div className="status">Grid Size: </div>
-				<form>
+				<div className="playerTurn">{status}</div>
+				<form className="gridSizeForm">
+				<div className='gridSizeFormTitle' >Grid Size: </div>
 				<input type='number' placeholder={ 'Current size: ' + this.state.defaultGridSize } onChange={this.handleChange} ></input>
-				<input type='submit' name='changeSize' onClick={this.handleSubmit} ></input>
-				<input type='submit' name='resetGrid' value='Reset Grid' onClick={this.handleSubmit} ></input>
+				<input type='submit' name='changeSize' onClick={this.handleSubmit} className='gridSizeFormButtons' ></input>
+				<input type='submit' name='resetGrid' value='Reset Grid' onClick={this.handleSubmit} className='gridSizeFormButtons'></input>
 				</form>
 				{ this.createGrid(this.state.defaultGridSize) }
 				</div> 
