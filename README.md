@@ -11,8 +11,9 @@ A tic-tac-tow clone built using React, Express and MongoDB. If you are wondering
 Note: The Facebook and Google secret keys have been hard-coded for demonstration purposes. It will be changed within 24 hours. 
 
 1. Fork & Clone
-2. Run `npm install` in both the `root` folder of the project and the `backend` to install dependencies
-3. Start the backend server using `npm start` while in the `backend` folder and in a separate tab start the main project from the root folder using `npm start`
+2. Run `npm install` in both the `root` folder of the project and the `backend` folder to install the dependencies
+3. Start the backend server using `npm start` while in the `backend` folder
+4. In a separate tab go to the project root folder and start the project using `npm start`
 4. Open project using `http://localhost:3000`
 5. Enjoy!
 
